@@ -1,0 +1,1 @@
+SELECT email, COUNT(tt.id) FROM (SELECT * FROM mg.translation_to UNION SELECT * FROM mg.translation_to_archive) AS tt LEFT JOIN mg.translation_from tf ON tf.id = tt.translation_from_id LEFT JOIN mg.users u ON u.id = tf.translation_from_user_id LIMIT 5;
