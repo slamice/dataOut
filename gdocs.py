@@ -1,8 +1,8 @@
+#### Examples from http://pseudoscripter.wordpress.com/2011/05/09/automatically-update-spreadsheets-and-graphs/ ####
 import time, csv, re, time, sys
 from pprint import pprint
 import gdata.spreadsheet.service
 
-#### Examples from http://pseudoscripter.wordpress.com/2011/05/09/automatically-update-spreadsheets-and-graphs/ ####
 def _CellsUpdateAction(spr_client, row,col,inputValue,key,wksht_id):
     try:
         entry = spr_client.UpdateCell(row=row, col=col, inputValue=inputValue,key=key, wksht_id=wksht_id)
