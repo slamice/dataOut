@@ -12,7 +12,7 @@ def push_to_geckoboard(api_key, widget_key, data):
 # Formats csv data into gecko data {"item":[{"label":"EXAMPLE MESSAGE","value":1234}]}
 def format_csv_data(csv_file):
     items = []
-    with open(constants.get_csv_file(csv_file), 'rb') as csvfile:
+    with open(csv_file, 'rb') as csvfile:
         rows = csv.reader(csvfile, delimiter=',', quotechar='\'', escapechar='\\')
         for i, row in enumerate(rows):
             items.append({'label':row[0],'value':row[1]})

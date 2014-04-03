@@ -5,6 +5,7 @@ import helper
 from datetime import datetime
 import psycopg2
 import sys
+import helper
 
 # Returns an open psql connection
 def run_psql_query(conn_string, query, title):
@@ -22,7 +23,7 @@ def run_psql_query(conn_string, query, title):
 
 # Writes results for records
 def write_csv_results(records, title):
-    csv_title = "%s%s.csv" % (constants.get_csv_path(),title)
+    csv_title = "%s%s.csv" % (helper.get_csv_path(),title)
 
     with open(csv_title, 'wb') as csvfile:
         csvwriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)

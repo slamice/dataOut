@@ -1,19 +1,22 @@
 Label: Awesome Data Example
 input:
     type: postgres
-    connection_string: user=postgres dbname=gengo_dev host=localhost
+    connection_string: 
     queries:
         - label: test-data1
-          comment: Jobs are not in read only table
-          query: SELECT ITEMS FROM TABLE_1 WHERE here;
+          comment: 
+          query: 
         - label: test-data2
-          comment: Group Jobs are avaialble but regular jobs are not
-          query: SELECT ITEMS FROM TABLE_2 WHERE here;
+          comment: 
+          query: 
 output: 
-    type: geckoboard
-    api_key: 7f2575dc91a8870f9d1220e12209a910
-    widgets:
+    type: google-spreadsheet
+    email: 
+    password: 
+    sheets:
         - label: test-data1
-          widget_key: 38573-580b2d7d-7221-4e33-a795-f16cd1bdc378
+          wrksht_key: 
+          sheet_num: 0
         - label: test-data2
-          widget_key: 38573-a3419c9c-71f8-4763-aca1-f2fa82b012ef
+          wrksht_key: 
+          sheet_num: 1
