@@ -1,14 +1,14 @@
 Label: Awesome Data Example
 input:
     type: postgres
-    connection_string: user=postgres dbname=dev host=localhost
+    connection_string: user=postgres dbname=gengo_dev host=localhost
     queries:
         - label: test-data1
           comment: Jobs are not in read only table
-          query: SELECT u.email, COUNT(tf.id) FROM mg.users u LEFT JOIN mg.translation_from tf ON tf.id = u.id WHERE u.email NOT LIKE 'deleted+%' GROUP BY u.email ORDER BY COUNT(tf.id) DESC LIMIT 5;
+          query: SELECT ITEMS FROM TABLE_1 WHERE here;
         - label: test-data2
           comment: Group Jobs are avaialble but regular jobs are not
-          query: SELECT u.email, COUNT(tor.order_id) FROM mg.translator_order tor  LEFT JOIN mg.translation_to tt on tt.order_id=tor.order_id LEFT JOIN mg.users u ON u.id = translate_from_user_id WHERE tor.status = 2 AND tt.status NOT IN (2,28) GROUP BY u.email,tor.order_id ORDER BY COUNT(tor.order_id) DESC;
+          query: SELECT ITEMS FROM TABLE_2 WHERE here;
 output: 
     type: geckoboard
     api_key: 7f2575dc91a8870f9d1220e12209a910
