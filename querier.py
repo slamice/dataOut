@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 import csv
 import constants
+import helper
 from datetime import datetime
 import psycopg2
 import sys
 
 # Returns an open psql connection
 def run_psql_query(conn_string, query, title):
+    db = psycopg2.connect(conn_string)
     try:
-        db = psycopg2.connect(conn_string)
         cur = db.cursor()
         cur.execute(query)
         records = cur.fetchall()

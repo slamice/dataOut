@@ -1,5 +1,6 @@
 import sys, os
 import constants
+import helper
 import emailer
 import gecko
 import querier
@@ -12,19 +13,20 @@ def process_json(json_result):
 
     if inputs['type'] == 'postgres':
         conn = inputs['connection_string']
-        query = inputs['query']
-        label = inputs['label']
-        querier.run_psql_query(conn, query, label)
+        for q in inputs['queries']:
+            query = q['query']
+            label = q['label']
+            querier.run_psql_query(conn, query, label)
 
     outputs = json_result['output']
 
     if outputs['type'] == 'geckoboard':
         api_key = outputs['api_key']
-        label = outputs['label']
-        widget_key = outputs['widget_key']
-
-        data = gecko.format_csv_data(label)
-        gecko.push_to_geckoboard(api_key,widget_key,data)
+        for w in outputs['widgets']:
+            label = w['label']
+            widget_key = w['widget_key']
+            data = gecko.format_csv_data(label)
+            gecko.push_to_geckoboard(api_key,widget_key,data)
 
 # Clears all csv data before running new code
 def clear_csvs():

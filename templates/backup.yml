@@ -1,7 +1,7 @@
 Label: Awesome Data Example
 input:
     type: postgres
-    connection_string: user=postgres dbname=dev host=localhost
+    connection_string: user=postgres dbname=gengo_dev host=localhost
     queries:
         - label: test-data1
           comment: Jobs are not in read only table
